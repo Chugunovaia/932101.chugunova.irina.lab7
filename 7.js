@@ -24,20 +24,29 @@ function DrawFigure(figure)
 	switch (figure)
 	{
 	case 'square':
+		div.style.width = `${size}px`;
+		div.style.height = `${size}px`;
+		div.addEventListener('mouseover', function() { this.style.backgroundColor = 'yellow';});
+		div.addEventListener('mouseout', function() { this.style.backgroundColor = 'red';});
+
+		break;
 	case 'circle':
 		div.style.width = `${size}px`;
 		div.style.height = `${size}px`;
-		div.addEventListener('click', function() { this.style.backgroundColor = 'yellow';});
+		div.addEventListener('mouseover', function() { this.style.backgroundColor = 'yellow';});
+		div.addEventListener('mouseout', function() { this.style.backgroundColor = 'green';});
 		break;
 	case 'triangle':
 		div.style.borderLeft = `${size*1.5}px` + ' solid transparent';
         div.style.borderRight = `${size*1.5}px` + ' solid transparent';
         div.style.borderBottom = `${size}px` + ' solid blue';
-		div.addEventListener('click', function() { this.style.borderBottomColor = 'yellow';});
+		div.addEventListener('mouseover', function() { this.style.borderBottomColor = 'yellow';});
+		div.addEventListener('mouseout', function() { this.style.borderBottomColor = 'blue';});
+
 		break;
 	}
 	
-	div.addEventListener('dblclick', function() { this.remove();})
+	div.addEventListener('click', function() { this.remove();})
 	document.body.appendChild(div);
 }
 
@@ -59,7 +68,3 @@ function ButtonClick(figure)
 
 }
 
-function OneClick()
-{
-	style.backgroundColor = 'yellow';
-}
